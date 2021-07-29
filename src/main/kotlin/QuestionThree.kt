@@ -3,15 +3,27 @@
  * @author Yogi Prasetio
  */
 
-internal enum class t {
-    ;
+fun main(){
+    print("Input waktu (hh:mm:ss AM/PM): ")
+    val time = readLine()
 
-    companion object {
-        @JvmStatic
-        fun main(a: Array<String>) {
-            var a = a
-            a = a[0].split("[: ]").toTypedArray()
-            System.out.format("%02d%02d", (a[0].toLong() + if (a[2][0] == 'p') 12 else 0) % 24, a[1].toLong())
+    val format = time!!.substring(9,11)
+    val hour = time.substring(0,2).toInt()
+    val minute = time.substring(3,5)
+
+    if (format == "PM"){
+        if (hour == 12){
+            print("$time => $hour:$minute")
+        } else {
+            print("$time => "+(12+hour).toString()+":$minute")
         }
+    } else if (format == "AM"){
+        if (hour == 12) {
+            print("$time => 00:$minute")
+        } else {
+            print("$time => $hour:$minute")
+        }
+    } else {
+        print("Format waktu yang diinputkan tidak sesuai!")
     }
 }
