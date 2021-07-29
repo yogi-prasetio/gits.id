@@ -24,6 +24,6 @@ fun main(){
             print("$time => $hour:$minute")
         }
     } else {
-        print("Format waktu yang diinputkan tidak sesuai!")
+        print("Format waktu tidak sesuai!")
     }
 }
